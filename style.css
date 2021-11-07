@@ -1,0 +1,120 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+#main-container{
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+
+
+
+#navigator{
+	position: fixed;
+	width: 100vw;
+	height: 55px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color:#461a42;
+}
+#navigator>*{
+	color: #FFF;
+	border-radius:  10px;
+	font-size: 1em;
+}
+#logoHome{
+	width: 12.5%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	font-size: 120%;
+}
+#searchBar{
+	padding: 5px;
+	background-color: #593155;
+	width: 60%;
+	height: 70%;
+}
+#searchBar:hover{
+	background-color: #6b4868;
+}
+.navButton{
+	width: 8%;
+	background-color: #6b4868;
+	height: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#enterCode:hover{
+	background-color: #593155;
+}
+#logIn:hover{
+	background-color: #593155;
+}
+#signUp{
+	color: #461a42;
+	background-color: #FFF;
+}
+
+
+#start{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 150px;
+	height: 100px;
+	border-radius: 2vw;
+	background-color: red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 225%;
+	color: #FFF;
+	transition: .5s;
+	border: none;
+}
+#start:hover{
+	width: 160px;
+	height: 110px;
+	transition: .5s;
+	border-radius: 2.5vw;
+	border: 2px solid red;
+	font-size: 250%;
+	font-weight: bold;
+	background-color: #6b4868;
+}
+
+
+#menu{
+	position: fixed;
+	float: left;
+	top: 55px;
+	height: 90vh;
+	width: 200px;
+	grid-area: menu;
+	border: 1px solid red;
+}
+
+
+
+#content{
+	grid-area: content;	
+	border: 1px solid red;		
+}	
+
+
+
+#ads{
+	position: fixed;
+	grid-area: ads;
+	border: 1px solid red;
+}
