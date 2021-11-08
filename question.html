@@ -4,23 +4,31 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<style type="text/css">
-		#bar{
+	<style type="text/css">	
+		body{
+			background-color: black;
+		}
+		#top{
 			width: 100%;
-			height: 100px;
-			background-color: red;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: black;
-			font-size: 200%;
-			font-weight: bold;
-			overflow: hidden;
+			height: 65px;
+			background-color: mediumpurple;
 		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="question.css">
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body onload="runBar()">
-	<p id="bar"></p>
+	<div id="top">
+		<div id="bar"></div>
+		<div>
+			<div class="topLeft" id="pause"></div>
+			<div class="topLeft" id="roundNumber"></div>
+			<div class="topLeft" id="streak"></div>
+			<div class="topRight" id="place"></div>
+			<div class="topRight" id="score"></div>
+		</div>
+	</div>
+	<div id="mid"></div>
+	<div id="bot"></div>
 </body>
 </html>
