@@ -20,34 +20,34 @@ var onStreak = 0, streak=0;
 var score=0,bonus=0;
 //streak and point 
 function visualizeStreak(){
-	var x = streak%3;
-	var y = Math.floor(streak/3);
-	var level = x+y*3;
-	var color = colorLevel[y];
-	/*console.log(x);
-	console.log(y);*/
+	let x = streak%3;
+	let y = Math.floor(streak/3);
+	let level = x+y*3;
+	let color = colorLevel[y];
 	console.log(x);
+	console.log(y);
 	document.getElementById("streakBar").style.transition = "1s";
 	document.getElementById("streakBar").style.backgroundColor = color;
 	document.getElementById("streakBar").style.width = 33*x+'%';
-	document.getElementById("streak").style.backgroundColor = colorLevel[y-1];
+	if (y==0) {
+		document.getElementById("streak").style.backgroundColor = "lightgrey";
+	} else document.getElementById("streak").style.backgroundColor = colorLevel[y-1];
 }
 function checkStreak(){
 	if (onStreak==0 && correct==1){
 		newStreak();
 		visualizeStreak();
-	}
-	if (onStreak==1 && correct==0){
+	} else if (onStreak==1 && correct==0){
 		resetStreak();
 		visualizeStreak();
-	}
-	if (onStreak==1 && correct==1){
+	} else if (onStreak==1 && correct==1){
 		streak+=1;
 		visualizeStreak();
 	}
 }
 function newStreak(){
 	onStreak=1;
+	streak=1;
 }
 function resetStreak(){
 	onStreak=0;
