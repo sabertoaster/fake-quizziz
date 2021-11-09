@@ -1,20 +1,87 @@
-var bar=100;
-var time=10;
-var speed=time/100*1;
-var questionPack = ["10+10=?","20+20=?","30+30=?","Bao giờ thì bán được một tỉ gói mè ?"];
+var bar=100, time=10, speed=time/100*1;
+var questionPack = ["10+10=?","20+20=?","30+30=?","40+40=?","50+50=?","60+60=?","70+70=?","80+80=?","90+90=?","100+100=?","hết câu hỏi rồi uwu"];
 var answerPack = [
 	[17,15,20,10],
 	[42,40,33,53],
 	[36,26,16,60],
-	["50 năm","1100 năm","em bán kem đánh răng","ko biết"]
+	[11,80,186,59],
+	[97,100,181,80],
+	[77,73,120,169],
+	[134,175,56,140],
+	[146,64,110,160],
+	[171,180,41,106],
+	[200,187,197,154]
 ]
-var key = [	20,	40,	60,"em bán kem đánh răng"]
+var key = [	20,	40,	60, 80,100,120,140,160,180,200]
+var colorLevel = ["lightblue","cyan","lightgreen","orange"]
 var questionNumber = 0;
 var correct = 0;
-
-function checkStreak(){
-
+var onStreak = 0, streak=0;
+var score=0,bonus=0;
+//streak and point 
+function visualizeStreak(){
+	var x = streak%3;
+	var y = Math.floor(streak/3);
+	var level = x+y*3;
+	var color = colorLevel[y];
+	/*console.log(x);
+	console.log(y);*/
+	console.log(x);
+	document.getElementById("streakBar").style.transition = "1s";
+	document.getElementById("streakBar").style.backgroundColor = color;
+	document.getElementById("streakBar").style.width = 33*x+'%';
+	document.getElementById("streak").style.backgroundColor = colorLevel[y-1];
 }
+function checkStreak(){
+	if (onStreak==0 && correct==1){
+		newStreak();
+		visualizeStreak();
+	}
+	if (onStreak==1 && correct==0){
+		resetStreak();
+		visualizeStreak();
+	}
+	if (onStreak==1 && correct==1){
+		streak+=1;
+		visualizeStreak();
+	}
+}
+function newStreak(){
+	onStreak=1;
+}
+function resetStreak(){
+	onStreak=0;
+	streak=0;
+}
+function showPoint(){
+	let i = Math.floor(streak/3);
+	switch (i) {
+		case 0:
+			i=0;
+			break;
+		case 1:
+			i=1.25;
+			break;
+		case 2:
+			i=1.5;
+			break;
+		case 3:
+			i=1.75;
+			break;
+		case 4:
+			i=2;
+			break;
+		default:
+			i=2;
+			break;
+	}
+	if (correct==1) {
+		score += 100 + i*100 + bonus;
+	}
+	setTimeout(function (){document.getElementById("score").innerHTML = score;},1000);
+}
+
+
 function showRoundNumber(){
 	let x = questionNumber+1;
 	document.getElementById("roundNumber").innerHTML = x+"/"+questionPack.length
@@ -22,8 +89,8 @@ function showRoundNumber(){
 function onLoad(){
 	changeQuestion();
 	runBar();
-	checkStreak();
 	showRoundNumber();
+	document.getElementById("score").innerHTML = score;
 }
 
 function reset(){
@@ -95,9 +162,12 @@ function checkAnswer(id){
 		{
 			correct = 1;
 		} else correct = 0;
+	bonus = parseInt(bar.toFixed(0));	
+	showPoint();
 	setTimeout(function (){
 		questionNumber += 1;
 		changeQuestion();
+		checkStreak();
 		showRoundNumber();
 		document.getElementById("bar").style.transition = "background-color 0s";
 		bar=100;

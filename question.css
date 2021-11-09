@@ -39,7 +39,7 @@
 }
 #roundNumber{
 	height: 40px;
-	width: 60px;
+	width: auto;
 	background-color: grey;
 	display: flex;
 	align-items: center;
@@ -48,11 +48,18 @@
 	font-family: sans-serif;
 	font-weight: bold;
 	font-size: 200%;
+	padding: 0px 5px 0px 5px;
 }
 #streak{
 	height: 40px;
 	width: 180px;
 	background-color: lightgrey;
+}
+#streakBar{
+	width: 0%;
+	height: 100%;
+	border-radius: inherit;
+	float: left;
 }
 .topRight{
 	border-radius: 10px;
@@ -60,8 +67,18 @@
 	float: right;
 	margin-right: 7px;
 	background-color: lightgrey;
-	width: 80px;
+	min-width: 80px;
 	height: 40px;
+}
+#score{
+	width: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 200%;
 }
 #mid{
 	border-radius: 10px;
