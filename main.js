@@ -1,18 +1,33 @@
 var bar=100;
 var time=10;
 var speed=time/100*1;
-var questionPack = ["10+10=?","20+20=?","30+30=?",""];
+var questionPack = ["10+10=?","20+20=?","30+30=?","Bao giờ thì bán được một tỉ gói mè ?"];
 var answerPack = [
 	[17,15,20,10],
 	[42,40,33,53],
 	[36,26,16,60],
+	["50 năm","1100 năm","em bán kem đánh răng","ko biết"]
 ]
-var key = [	20,	40,	60,]
+var key = [	20,	40,	60,"em bán kem đánh răng"]
 var questionNumber = 0;
 var correct = 0;
+
+function checkStreak(){
+
+}
+function showRoundNumber(){
+	let x = questionNumber+1;
+	document.getElementById("roundNumber").innerHTML = x+"/"+questionPack.length
+}
 function onLoad(){
 	changeQuestion();
 	runBar();
+	checkStreak();
+	showRoundNumber();
+}
+
+function reset(){
+	location.reload();
 }
 
 function runBar(){
@@ -72,9 +87,7 @@ function transit(){
 	}
 	},1000);
 }
-function checkStreak(){
 
-}
 function checkAnswer(id){
 	let i;
 	// bug
@@ -82,10 +95,10 @@ function checkAnswer(id){
 		{
 			correct = 1;
 		} else correct = 0;
-	console.log(correct);
 	setTimeout(function (){
 		questionNumber += 1;
 		changeQuestion();
+		showRoundNumber();
 		document.getElementById("bar").style.transition = "background-color 0s";
 		bar=100;
 	},1000);

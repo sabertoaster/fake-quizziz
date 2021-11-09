@@ -29,11 +29,25 @@
 	height: 40px;
 	width: 40px;
 	background-color: lightgrey;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 200%;
 }
 #roundNumber{
 	height: 40px;
 	width: 60px;
 	background-color: grey;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 200%;
 }
 #streak{
 	height: 40px;
