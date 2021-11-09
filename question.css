@@ -77,18 +77,25 @@
 	background-color:rgba(0,0,0,0.9);
 	border-radius: 10px;
 	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 400%;
 }
-#answer1{
+#answer0{
 	margin-left: 10px;
 	grid-area: answer1;
 }
-#answer2{
+#answer1{
 	grid-area: answer2;
 }
-#answer3{
+#answer2{
 	grid-area: answer3;
 }
-#answer4{
+#answer3{
 	grid-area: answer4;
 	margin-right: 10px;
 }

@@ -21,9 +21,9 @@
 		}
 	</style>
 	<link rel="stylesheet" type="text/css" href="question.css">
-	<script type="text/javascript" src="main.js"></script>
+	
 </head>
-<body onload="onLoad()">
+<body id="body" onload="onLoad()">
 	<div id="top">
 		<div id="bar"></div>
 		<div>
@@ -36,11 +36,12 @@
 	</div>
 	<div id="mid">
 		<div id="question"></div>
-		<div class="answer" id="answer1" onclick="checkAnswer()"></div>
-		<div class="answer" id="answer2" onclick="checkAnswer()"></div>
-		<div class="answer" id="answer3" onclick="checkAnswer()"></div>
-		<div class="answer" id="answer4" onclick="checkAnswer()"></div>
+		<div class="answer" id="answer0" onclick="checkAnswer('answer0')"></div>
+		<div class="answer" id="answer1" onclick="checkAnswer('answer1')"></div>
+		<div class="answer" id="answer2" onclick="checkAnswer('answer2')"></div>
+		<div class="answer" id="answer3" onclick="checkAnswer('answer3')"></div>
 	</div>
 	<div id="bot"></div>
+	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
